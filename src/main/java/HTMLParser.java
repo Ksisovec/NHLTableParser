@@ -1,5 +1,7 @@
-import Model.BookValues;
-import Model.MatchResult;
+import model.BookValue;
+import model.MatchResult;
+import model.services.implementations.BookValueService;
+import model.services.implementations.MatchResultService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -80,13 +82,27 @@ public class HTMLParser {
 
     public static void main(String[] args) {
         try {
-            String startDate = args[0];
-            String endDate = null;
-            if(args.length > 1)
-                endDate = args[1];
+//            String startDate = args[0];
+//            String endDate = null;
+            String startDate = "2019-11-14";
+            String endDate = "2019-11-25";
+//            if(args.length > 1)
+//                endDate = args[1];
             //TODO: add setting to choose date
-            List<MatchResult> matchResults = setInNHLResult(startDate, endDate);
+            String currentDate = startDate;
+            List<MatchResult> matchResults = null;
+            /**не включительно
+             * т.е. с 10 05 2019 по 15 05 2019 это:
+             * 10 11 12 13 14
+             * */
+            while(!currentDate.equals(endDate)) {
+                matchResults.addAll(setInNHLResult(currentDate));
+                currentDate = nextDay(currentDate);
+            }
+
             //TODO: enter to db
+            addToDB(matchResults);
+
             System.out.println("Finish");
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,12 +110,24 @@ public class HTMLParser {
 
     }
 
+    public static void addToDB(List<MatchResult> matchResults){
+        BookValueService workerService = new BookValueService();
+        MatchResultService tasksService = new MatchResultService();
 
-    public static List<MatchResult> setInNHLResult(String startDate, String endDate) {
+    }
+
+
+    public static String nextDay(String currentDate) {
+
+        LocalDate localDate = LocalDate.parse(currentDate);
+        return localDate.plusDays(1).toString();
+    }
+
+    public static List<MatchResult> setInNHLResult(String currentDate) {
         List<MatchResult> matchResultList = new ArrayList<>();
         try {
 
-            WebDriver webDriver = PhantomJsUtils.getWebDriver(startDate, endDate);
+            WebDriver webDriver = PhantomJsUtils.getWebDriver(currentDate);
             Document doc = Jsoup.parse(webDriver.getPageSource());
 
             Map<String, String> mapOfBooks = getMapOfBooks(doc);
@@ -162,7 +190,7 @@ public class HTMLParser {
                         matchResult.setTimeTv(time);
                         /**End set time*/
 
-                        List<BookValues> bookValuesList = new ArrayList<>();
+                        List<BookValue> bookValuesList = new ArrayList<>();
                         {
                             String[] booksId = new String[mapOfBooks.size()];
                             mapOfBooks.keySet().toArray(booksId);
@@ -172,7 +200,7 @@ public class HTMLParser {
                                 String bookId = booksId[j];
                                 String firstTeamValue = firstTeamValuesTest.get(bookId + firstTeamId);
                                 String secondTeamValue = secondTeamValuesTest.get(bookId + secondTeamId);
-                                BookValues bookValue = new BookValues(mapOfBooks.get(bookId), firstTeamValue, secondTeamValue);
+                                BookValue bookValue = new BookValue(mapOfBooks.get(bookId), firstTeamValue, secondTeamValue);
                                 bookValuesList.add(bookValue);
                             }
                         }

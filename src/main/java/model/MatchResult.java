@@ -1,26 +1,44 @@
-package Model;
+package model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "match_result", schema = "match_result_schema", catalog = "postgres")
 public class MatchResult {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+
+    @Column(name = "date")
+    @Temporal(value = TemporalType.DATE)
     LocalDate date;
+
+    @Column(name = "timetv")
     String timeTv;
+
+    @Column(name = "first_team_name")
     String firstTeamName;
+
+    @Column(name = "second_team_name")
     String secondTeamName;
     /**
      * true - first team win
      * false - second team win
      * */
+    @Column(name = "winner")
     Boolean winner = null;
-    List<BookValues> bookValues;
+
+    @OneToMany(mappedBy = "matchResult",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<BookValue> bookValues;
 
     public MatchResult(){}
 
     public MatchResult(Integer id, String date, String firstTeamName,  String secondTeamName, Boolean winner,
-                     List<BookValues> bookValues){
+                     List<BookValue> bookValues){
         this.id = id;
         LocalDate localDate = LocalDate.parse(date);
         this.date = localDate;
@@ -39,11 +57,11 @@ public class MatchResult {
         this.id = id;
     }
 
-    public List<BookValues> getBookValues() {
+    public List<BookValue> getBookValues() {
         return bookValues;
     }
 
-    public void setBookValues(List<BookValues> bookValues) {
+    public void setBookValues(List<BookValue> bookValues) {
         this.bookValues = bookValues;
     }
 
@@ -86,6 +104,5 @@ public class MatchResult {
     public void setTimeTv(String timeTv) {
         this.timeTv = timeTv;
     }
-
 
 }

@@ -9,15 +9,21 @@ class PhantomJsUtils {
 
 
     //TODO: enter date
-    public static WebDriver getWebDriver(String startDate, String endDate){
+    public static WebDriver getWebDriver(String date) {
         File path = new File("d:\\Download\\phantomjs-2.1.1-windows\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe");
         System.setProperty("phantomjs.binary.path", path.getAbsolutePath());
         WebDriver ghostDriver = new PhantomJSDriver();
 //        ghostDriver.get("https://classic.sportsbookreview.com/betting-odds/nhl-hockey/?date=20191115");
 //        ghostDriver.get("https://classic.sportsbookreview.com/betting-odds/college-football/?date=20191115");
-        ghostDriver.get("https://classic.sportsbookreview.com/betting-odds/ncaa-basketball/?date=20191115");
+
+        ghostDriver.get("https://classic.sportsbookreview.com/betting-odds/ncaa-basketball/?date=" + date);
+
+
         return ghostDriver;
     }
+
+
+
 
     public static Document turnThePage(WebDriver ghostDriver){
         WebElement next = ghostDriver.findElement(By.className("next"));
