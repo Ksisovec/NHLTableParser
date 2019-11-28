@@ -19,7 +19,7 @@ public class HTMLParser {
         Map<String, String> teamValues = new HashMap<>();
 
         Elements firstCell = row.select("div[id~=eventLineOpener.*-" + teamRel + "-]");
-        teamValues.put(teamRel, firstCell.get(0).text());
+        teamValues.put("0" + teamRel, firstCell.get(0).text());
 
         getOtherCellsTest(row, teamRel, teamValues);
 
@@ -82,15 +82,17 @@ public class HTMLParser {
 
     public static void main(String[] args) {
         try {
+
+            clearDB();
 //            String startDate = args[0];
 //            String endDate = null;
-            String startDate = "2019-11-14";
-            String endDate = "2019-11-25";
+            String startDate = "2019-11-12";
+            String endDate = "2019-11-16";
 //            if(args.length > 1)
 //                endDate = args[1];
             //TODO: add setting to choose date
             String currentDate = startDate;
-            List<MatchResult> matchResults = null;
+            List<MatchResult> matchResults = new ArrayList<>();
             /**не включительно
              * т.е. с 10 05 2019 по 15 05 2019 это:
              * 10 11 12 13 14
@@ -111,9 +113,16 @@ public class HTMLParser {
     }
 
     public static void addToDB(List<MatchResult> matchResults){
-        BookValueService workerService = new BookValueService();
-        MatchResultService tasksService = new MatchResultService();
+        MatchResultService matchResultService = new MatchResultService();
+        for(MatchResult matchResult : matchResults)
+            matchResultService.save(matchResult);
+    }
 
+    public static void clearDB(){
+        MatchResultService matchResultService = new MatchResultService();
+        for (MatchResult matchResult : matchResultService.findAll()) {
+            matchResultService.delete(matchResult);
+        }
     }
 
 
@@ -169,7 +178,7 @@ public class HTMLParser {
                         String firstTeamName = firstTeam.text();
                         String secondTeamName = secondTeam.text();
                         MatchResult matchResult = new MatchResult();
-                        matchResult.setDate(LocalDate.parse(date));
+                        matchResult.setDate(date);
                         matchResult.setFirstTeamName(firstTeamName);
                         matchResult.setSecondTeamName(secondTeamName);
 
@@ -200,8 +209,11 @@ public class HTMLParser {
                                 String bookId = booksId[j];
                                 String firstTeamValue = firstTeamValuesTest.get(bookId + firstTeamId);
                                 String secondTeamValue = secondTeamValuesTest.get(bookId + secondTeamId);
+                                String bookName = mapOfBooks.get(bookId);
                                 BookValue bookValue = new BookValue(mapOfBooks.get(bookId), firstTeamValue, secondTeamValue);
                                 bookValuesList.add(bookValue);
+                                //for adding to db
+                                bookValue.setMatchResult(matchResult);
                             }
                         }
                         matchResult.setBookValues(bookValuesList);

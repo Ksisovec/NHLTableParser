@@ -7,16 +7,16 @@ import javax.persistence.*;
 public class BookValue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
 
     @Column(name = "book_name")
-    String bookName;
+    private String bookName;
 
     @Column(name = "first_value")
-    String firstValue;
+    private String firstValue;
 
     @Column(name = "second_value")
-    String secondValue;
+    private String secondValue;
 
     @ManyToOne
     @JoinColumn(name = "match_result_id")

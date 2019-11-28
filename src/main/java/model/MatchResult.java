@@ -2,6 +2,8 @@ package model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -9,26 +11,26 @@ import java.util.List;
 public class MatchResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
 
     @Column(name = "date")
     @Temporal(value = TemporalType.DATE)
-    LocalDate date;
+    private Date date;
 
     @Column(name = "timetv")
-    String timeTv;
+    private String timeTv;
 
     @Column(name = "first_team_name")
-    String firstTeamName;
+    private String firstTeamName;
 
     @Column(name = "second_team_name")
-    String secondTeamName;
+    private String secondTeamName;
     /**
      * true - first team win
      * false - second team win
      * */
     @Column(name = "winner")
-    Boolean winner = null;
+    private Boolean winner = null;
 
     @OneToMany(mappedBy = "matchResult",
             cascade = CascadeType.ALL,
@@ -41,7 +43,7 @@ public class MatchResult {
                      List<BookValue> bookValues){
         this.id = id;
         LocalDate localDate = LocalDate.parse(date);
-        this.date = localDate;
+        this.date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());;
         this.firstTeamName = firstTeamName;
         this.secondTeamName = secondTeamName;
         this.winner = winner;
@@ -66,11 +68,14 @@ public class MatchResult {
     }
 
     public LocalDate getDate() {
-        return date;
+        LocalDate localDate = this.date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return localDate;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDate(String date) {
+
+        LocalDate localDate = LocalDate.parse(date);
+        this.date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
     public String getFirstTeamName() {
