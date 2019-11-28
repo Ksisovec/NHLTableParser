@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c2e9e5d-27ef-4ec2-8a53-66acc2a76a92" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/FastInfoset-1.2.15.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/antlr-2.7.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/byte-buddy-1.10.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/classmate-1.5.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dom4j-2.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/hibernate-commons-annotations-5.1.0.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/hibernate-core-5.4.9.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/istack-commons-runtime-3.0.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jandex-2.1.1.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javassist-3.24.0-GA.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.activation-api-1.2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.persistence-api-2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jaxb-api-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jaxb-runtime-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jboss-logging-3.3.2.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jboss-transaction-api_1.2_spec-1.1.1.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stax-ex-1.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/txw2-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phantomjs.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phantomjsdriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/phantomjsdriver.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HTMLParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HTMLParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PhantomJsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PhantomJsUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/BookValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BookValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MatchResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MatchResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HTMLParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HTMLParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PhantomJsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PhantomJsUtils.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -210,7 +184,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574771886136</updated>
       <workItem from="1574771891016" duration="96623000" />
-      <workItem from="1574952474795" duration="20295000" />
+      <workItem from="1574952474795" duration="21138000" />
     </task>
     <task id="LOCAL-00001" summary="add db">
       <created>1574962554126</created>
@@ -219,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574962554126</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="final version">
+      <created>1574975060763</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574975060763</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +219,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add db" />
-    <option name="LAST_COMMIT_MESSAGE" value="add db" />
+    <MESSAGE value="final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="final version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
