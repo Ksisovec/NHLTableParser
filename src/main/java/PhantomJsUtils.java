@@ -7,8 +7,6 @@ import java.io.File;
 
 class PhantomJsUtils {
 
-
-    //TODO: enter date
     public static WebDriver getWebDriver(String date) {
         File path = new File("phantomjs.exe");
         System.setProperty("phantomjs.binary.path", path.getAbsolutePath());
@@ -37,9 +35,6 @@ class PhantomJsUtils {
         return ghostDriver;
     }
 
-
-
-
     public static Document turnThePage(WebDriver ghostDriver){
         WebElement next = ghostDriver.findElement(By.className("next"));
         next.click();
@@ -50,7 +45,5 @@ class PhantomJsUtils {
         }
         return Jsoup.parse(ghostDriver.getPageSource());
     }
-
-
 
 }

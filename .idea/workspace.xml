@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c2e9e5d-27ef-4ec2-8a53-66acc2a76a92" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phantomjsdriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/phantomjsdriver.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HTMLParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HTMLParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PhantomJsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PhantomJsUtils.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -155,16 +158,6 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ab521ad0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@800e107" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ab521ad0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@383d89a5" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@ab521ad0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceNode@47650d49" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
@@ -184,7 +177,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574771886136</updated>
       <workItem from="1574771891016" duration="96623000" />
-      <workItem from="1574952474795" duration="21138000" />
+      <workItem from="1574952474795" duration="21903000" />
     </task>
     <task id="LOCAL-00001" summary="add db">
       <created>1574962554126</created>
@@ -200,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574975060763</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="final version">
+      <created>1574976178311</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574976178311</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,22 +232,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/HTMLParser.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/HTMLParser.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/HTMLParser.java</url>
-          <line>212</line>
+          <line>216</line>
           <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/PhantomJsUtils.java</url>
-          <line>13</line>
+          <line>11</line>
           <option name="timeStamp" value="81" />
         </line-breakpoint>
       </breakpoints>

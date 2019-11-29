@@ -84,13 +84,18 @@ public class HTMLParser {
         try {
 
             clearDB();
-//            String startDate = args[0];
-//            String endDate = null;
-            String startDate = "2019-11-12";
-            String endDate = "2019-11-16";
-//            if(args.length > 1)
-//                endDate = args[1];
-            //TODO: add setting to choose date
+//            String startDate = "2019-11-12";
+//            String endDate = "2019-11-16";
+            /**
+             * Дата должна вводиться в YYYY-MM-DD формате!
+             * */
+            String startDate = args[0];
+            String endDate = null;
+            if(args.length > 1)
+                endDate = args[1];
+            else
+                endDate = nextDay(startDate);
+
             String currentDate = startDate;
             List<MatchResult> matchResults = new ArrayList<>();
             /**не включительно
@@ -102,7 +107,7 @@ public class HTMLParser {
                 currentDate = nextDay(currentDate);
             }
 
-            //TODO: enter to db
+            //enter to db
             addToDB(matchResults);
 
             System.out.println("Finish");
@@ -209,7 +214,6 @@ public class HTMLParser {
                                 String bookId = booksId[j];
                                 String firstTeamValue = firstTeamValuesTest.get(bookId + firstTeamId);
                                 String secondTeamValue = secondTeamValuesTest.get(bookId + secondTeamId);
-                                String bookName = mapOfBooks.get(bookId);
                                 BookValue bookValue = new BookValue(mapOfBooks.get(bookId), firstTeamValue, secondTeamValue);
                                 bookValuesList.add(bookValue);
                                 //for adding to db
